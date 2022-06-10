@@ -2,15 +2,15 @@
 package trabajo_Herencia_proyecto;
 
 public class Empleado_Planilla extends Empleado {
-    // atributos
+    // attributes
 private int cant_hijos;
 private String afp;
 private String onp;
-// constructor sin paramettro
+// constructor without parameter
 public Empleado_Planilla(){
     
 }
-//constructor parametros
+//constructor with parameter
 
     public Empleado_Planilla( String nombre, String apellido, String dni, String direccion, int edad, String formacionAcademica, int anosExperiencia, int horas_trabajadas,
                              int pago_horas,int cant_hijos,String afp,String onp) {

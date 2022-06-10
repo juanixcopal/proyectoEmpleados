@@ -1,7 +1,7 @@
 
 package trabajo_Herencia_proyecto;
 public abstract class Empleado {
-    // atributos
+    // attributes
   private String nombre;
   private String apellido;
   private String dni;
@@ -11,11 +11,11 @@ public abstract class Empleado {
   private int anosExperiencia;
   private int horas_trabajadas;
   private int pagoPorHora;
-   // constructor  sin parametro
+   // constructor without parameter
   public Empleado(){
       
   }
-      // constructor con parametro
+      // constructor with parameter
     public Empleado(String nombre, String apellido, String dni, String direccion, int edad, String formacionAcademica, 
             int anosExperiencia, int horas_trabajadas, int pago_horas) {
         this.nombre = nombre;
@@ -29,7 +29,7 @@ public abstract class Empleado {
         this.pagoPorHora = pago_horas;
     }
   
-  // metodo get and set 
+  // get and set method 
 
     public String getNombre() {
         return nombre;
@@ -101,7 +101,7 @@ public abstract class Empleado {
     public void setPagoPorHora(int pagoPorHora) {
         this.pagoPorHora = pagoPorHora;
     }
-    // metodo abstracto 
+    // abstract method
     
     public abstract String imprimirBoletaPago();
     public abstract int horasExtras();

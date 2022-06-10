@@ -4,7 +4,7 @@ package trabajo_Herencia_proyecto;
 public class Logging {
     public String logging_usuario(String usuario, String password)
     {
-        // auxi
+        // usernames and passwords
         String mensaje;
         if (usuario.equals("Admin")&& password.equals("1111"))
             mensaje = "Usuario Admin logeado";
