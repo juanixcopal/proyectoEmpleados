@@ -1,0 +1,118 @@
+@startuml
+
++abstract class Empleado{
+  -String nombre;
+  -String apellido;
+  -String dni;
+  -String direccion;
+  -int edad;
+  -String formacionAcademica;
+  -int anosExperiencia;
+  -int horasTrabajadas;
+  -int pagoHora;
+
+  +Empleado()
+  +EmpleadoI(nombre,apellido,dni,direccion,formacionAcademica,edad,anosexperiencia,horas_trabajadas,pago_horas)
+  +String getNombre()
+  +void setNombre(nombre)
+  +String getApellido()
+  +void setApellido(apellido)
+  +String getDni()
+  +void setDni(dni)
+  +String getDireccion()
+  +void setDireccion(direccion)
+  +int getEdad()
+  +void setEdad(edad)
+  +String getFormacionAcademica()
+  +void setFormacionAcademica(formacionAcademica)
+  +int getanosExperiencia()
+  +void setAnosExperiencia(anosExperiencia)
+  +int getHoras_trabajadas()
+  +void setHoras_trabajadas(horas_trabajadas)
+  +int getPago_horas()
+  +void setPago_horas(pago_horas)
+  +abstract String imprimirBoletaPago();
+  +abstract int horasExtras();
+  +abstract int cant_horas_extras();
+  +abstract double sueldoBruto();
+  +abstract double sueldoNeto();
+}
+
++class Empleado_Recibo extends Empleado{
+  -String strRuc;
+  +Empleado_Recibo()
+  +Empleado_Recibo(nombre,apellido,dni,direccion,formacionAcademica,edad,anosexperiencia,horas_trabajadas,pago_horas,strRuc)
+  +String getStrRuc()
+  +void setStrRuc(strRuc)
+  +int cant_horas_extras()
+  +int horasExtras()
+  +double sueldoBruto()
+  +double sueldoNeto()
+  +String imprimirBoletaPago()
+}
+
++class Empleado_Planilla extends Empleado{
+  -int cant_hijos;
+  -String afp;
+  -String onp;
+
+  +Empleado_Planilla()
+  +Empleado_Planilla(nombre,apellido,dni,direccion,formacionAcademica,edad,anosexperiencia,horas_trabajadas,pago_horas,cant_hijos,afp,onp)
+  +int getCant_Hijos()
+  +void setCant_Hijos(cant_hijos)
+  +String getAfp()
+  +void setAfp(afp)
+  +String getOnp()
+  +void setOnp(onp)
+  
+  +double sueldoBruto(){getHoras_trabajadas() * getPago_horas}
+  +int horasExtras()
+  +int cant_horas_extras()
+  -double pension()
+  -double bonoHijos()
+  +double sueldoNeto(){sueldoBruto()+horasExtras()+bonoHijos()-pension()}
+  +String imprimirBoletaPago()
+}
+
++class login{
+  +String loagging_usuarios(String usuario,String password)
+}
+
+
++class GuiPlanilla{
+
+}
+
++class GuiRecibo{
+  -String strRuc
+  +Empleado_Recibo
+  +Empleado_Recibo(nombre, apellido, dni, direccion, edad, formacionAcademica, anosExperiencia, horas_trabajadas, pago_horas, strRuc)
+  +String getStrRuc
+  +void setStrRuc
+  +int cant_horas_extras
+  +int horasExtras
+  +double sueldoBruto
+  +double sueldoNeto
+  +String imprimirBoletaPago
+}
+
++class guiSistema_empleados_menu{
+
+}
+
++class Usuarios{
+  +Usuarios(initComponents)
+  -void initComponents
+  +static void main(
+    +void run()
+  )
+
+}
+
+Empleado_Planilla <|-- GuiPlanilla
+Empleado_Recibo <|-- GuiRecibo
+Empleado <|--guiSistema_empleados_menu
+login <|-- Usuarios
+guiSistema_empleados_menu <|-- Usuarios
+
+@enduml
